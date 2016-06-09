@@ -16,8 +16,68 @@
 
     <div class="col-md-6 col-md-offset-3">
       <h4>population by country</h4>
+      <div class="form-group">
+        Country: <input type="text" class = "form-control" ng-model = "countryName">
+        Year :<input type="text" class = "form-control" ng-model = "year">
+
+        <a href="" class= "btn btn-primary" ng-click = "getPopulation()">Get population</a>       
+
+      </div>
+
+      <table class="table-striped" ng-show = "results!=null">
+      <thead>
+        <tr>
+          <th>Population</th>         
+        </tr>
+      </thead>
       
+      <tbody>
+        <tr ng-repeat = "result in results">
+          <td>
+             {{result[2]}}      
+          </td>
+          <td>
+              {{result[3]}}
+          </td>          
+        </tr>        
+      </tbody>      
+    </table> 
     </div>
+    
+  </div>
+
+  <div class="row" ng-controller= "percentController">
+    <div class="col-md-6 col-md-offset-3">
+      <h4>population change by year</h4>
+      <div class="form-group">
+        Country: <input type="text" class = "form-control" ng-model = "countryName">
+        Year1 :<input type="text" class = "form-control" ng-model = "year1">
+        Year2 :<input type="text" class = "form-control" ng-model = "year2">
+
+        <a href="" class= "btn btn-primary" ng-click = "changedPopulation()">Change in population</a>       
+
+      </div>
+
+      <table class="table-striped" >
+      <thead>
+        <tr>
+          <th>Population</th>         
+        </tr>
+      </thead>
+      
+      <tbody>
+        
+        <tr ng-repeat = "result2 in results2">
+          
+          <td>
+             {{result2[2]}}      
+          </td>
+          <td>
+              {{percentage()}}
+          </td>          
+        </tr>        
+      </tbody>      
+    </table> 
     
   </div>
   
